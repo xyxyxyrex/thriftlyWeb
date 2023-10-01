@@ -1,0 +1,137 @@
+@import url(fonts.css);
+
+* {
+  padding: 0;
+  margin: 0;
+  font-family: "Space Grotesk Regular";
+}
+
+html {
+  height: 100vh;
+}
+
+body {
+  min-height: 100%;
+  margin: 0;
+  overflow-y: hidden;
+}
+.parentWrapper {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+}
+
+.leftWrapper {
+  position: relative;
+  grid-column: 1;
+  background-size: cover;
+  height: 100vh;
+  margin: 0;
+}
+
+.background-image {
+  margin: 0;
+  width: 65vw;
+  height: 100%;
+  object-fit: cover;
+  filter: brightness(0.2);
+  z-index: -5;
+}
+
+.textArea {
+  color: white;
+  z-index: 5;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.textArea h1 {
+  font-weight: 700;
+}
+
+.rightWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.loginForm img {
+  margin-left: 25%;
+  height: auto;
+  width: 10vw;
+}
+
+.loginForm {
+  width: 65%;
+  padding: 2.5%;
+  font-weight: bold;
+}
+
+.loginForm h1 {
+  margin: auto;
+  font-weight: 700;
+  font-size: 2.5rem;
+}
+
+.textArea h3 {
+  margin: auto;
+  font-weight: 400;
+  font-size: 1.1rem;
+}
+
+input[type="text"],
+[type="password"] {
+  width: 85%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  border-radius: 50px;
+  border: solid 0.5px rgba(0, 0, 0, 0.2);
+}
+
+input[type="submit"] {
+  width: 50%;
+  padding: 12px 20px;
+  margin-left: 25%;
+  border-radius: 50px;
+  background-color: #592e8b;
+  border: none;
+  font-weight: bold;
+}
+
+input[type="submit"]:hover {
+  font-weight: 700;
+  width: 50%;
+  padding: 12px 20px;
+  border-radius: 50px;
+  background-color: 592e8b;
+  color: white;
+  border: none;
+}
+
+form label {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: rgba(5, 3, 3, 0.8);
+}
+form a {
+  text-decoration: none;
+  color: black;
+}
+
+.registerAccountButton {
+  font-family: "Space Grotesk Regular";
+  justify-content: center;
+  color: rgba(0, 0, 0, 0.4);
+}
+.registerAccountButton a {
+  text-decoration: underline;
+}
+
+.logoImage img {
+  height: 100px;
+  width: 100px;
+  object-fit: contain;
+}

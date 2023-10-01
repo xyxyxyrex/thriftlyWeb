@@ -1,0 +1,407 @@
+@import url(./fonts.css);
+
+body {
+  margin: 0;
+  font-family: "Space Grotesk Regular";
+  background: #e8e8e8;
+}
+
+.navBar1 {
+  justify-content: center;
+  text-align: center;
+  margin: 1%;
+  font-family: "Space Grotesk Bold";
+  font-size: 2rem;
+}
+
+.navBar2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 5%;
+  font-family: "Space Grotesk Bold";
+  font-size: 2rem;
+}
+
+.navTwoLeft img {
+  width: 150px;
+  margin: 5%;
+}
+
+.navTwoCenter,
+.navTwoRight {
+  display: flex;
+  align-items: center;
+}
+
+.navTwoCenter span,
+.navTwoRight span {
+  margin: 0 10px; /* Adjust the margin as needed */
+  filter: opacity(0.5);
+}
+.navTwoCenter span:hover,
+.navTwoRight span:hover {
+  margin: 0 10px; /* Adjust the margin as needed */
+  color: #592e8b;
+  filter: opacity(1);
+  cursor: pointer;
+}
+
+.storyArea {
+  display: flex;
+  overflow-x: hidden; /* Enable horizontal scrolling on small screens */
+  overflow-y: hidden;
+  padding: 10px;
+  height: 30vh;
+  margin: 0 5%;
+}
+
+.story {
+  flex: 0 0 auto;
+  margin-right: 10px;
+  position: relative;
+  cursor: grab;
+  user-select: none;
+}
+.story:hover {
+  filter: brightness(80%);
+  transition: 0.5s;
+}
+
+.story img {
+  max-width: 100%;
+  height: 30vh;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.profilePicture {
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+  height: 50px !important;
+  width: 50px !important;
+  outline: 2px solid #592e8b;
+  overflow: hidden;
+  border-radius: 50% !important;
+}
+
+.profilePicture img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center center;
+  border-radius: 50% !important;
+}
+
+#leftButton,
+#rightButton {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 10px;
+  background-color: #2a2a2a; /* Change the color as needed */
+  color: #fff; /* Change the text color as needed */
+  cursor: pointer;
+}
+
+#leftButton:hover,
+#rightButton:hover {
+  background-color: #592e8b;
+  transition: 0.5s;
+}
+
+#leftButton,
+#rightButton {
+  border-radius: 50px;
+  height: 50px;
+  width: 50px;
+  border: none;
+}
+
+button {
+  margin-left: 25px;
+  margin-right: 25px;
+}
+
+#rightButton {
+  right: 0;
+}
+#leftButton {
+  left: 0;
+}
+.postToFeed {
+  margin: 1% auto auto auto;
+  display: flex;
+  align-items: center;
+  background-color: #f0f0f0;
+  border-radius: 20px;
+  padding: 10px;
+  width: 500px; /* You can adjust the width as needed */
+  min-width: 100px; /* Set a minimum width to prevent collapsing */
+  overflow: hidden; /* Hide content that overflows the container */
+}
+
+.writePost {
+  flex: 1;
+  display: flex;
+}
+
+input[type="text"] {
+  width: 100%;
+  border: none;
+  padding: 10px;
+  border-radius: 15px;
+  outline: none;
+  font-size: 1rem;
+  font-family: "Space Grotesk Regular";
+}
+
+.addPicture {
+  margin-right: 10px;
+  cursor: pointer;
+  color: #592e8b;
+}
+
+.addPicture i {
+  font-size: 1.5rem;
+}
+
+.addPicture::before {
+  font-size: 2rem;
+  display: inline-block;
+  margin-right: 5px;
+}
+
+.submitButton {
+  cursor: pointer;
+}
+
+.submitButton::before {
+  content: "\02190"; /* Unicode character for left arrow */
+  font-size: 20px;
+  display: inline-block;
+}
+
+.fa-circle-plus::before {
+  content: "\F055"; /* Unicode character for a circle with a plus sign */
+  font-size: 30px;
+  display: inline-block;
+  margin-right: 5px;
+}
+.fa-circle-plus:hover {
+  color: #884ccc;
+  transition: 0.5s;
+}
+
+.fileInput {
+  display: none;
+}
+
+.submitButton {
+  cursor: pointer;
+}
+
+.thumbnail {
+  max-width: 50px;
+  max-height: 50px;
+  margin-right: 5px;
+}
+
+.vertFeedWrapper {
+  display: flex;
+  max-width: 90vw;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.vertNav {
+  flex: 1;
+  padding: 20px;
+  color: #2a2a2a;
+  font-family: "Space Grotesk Semibold";
+  list-style-type: lower-roman;
+}
+.vertNav li:hover {
+  color: #592e8b;
+  cursor: pointer;
+}
+.vertNav ul {
+  list-style-type: none;
+  float: right;
+}
+
+.feedArea {
+  flex: 2;
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 0 20px;
+}
+
+.chatArea {
+  flex: 1;
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  height: 50vh;
+}
+
+.chatArea img {
+  margin: auto;
+  height: 25px;
+  display: flex;
+}
+
+.feedArea {
+  flex: 2;
+  background-color: #fff;
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 0 20px;
+}
+
+.post {
+  border-bottom: 1px solid #ccc;
+  margin-bottom: 20px;
+  padding-bottom: 20px;
+  display: flex;
+  align-items: flex-start;
+}
+
+.userImage {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #ddd;
+  margin-right: 10px;
+}
+.userImage img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #ddd;
+  margin-right: 10px;
+  object-fit: cover;
+}
+
+.postContent {
+  flex: 1;
+}
+
+.postText {
+  margin-bottom: 10px;
+}
+
+.postImage {
+  max-width: 100%;
+  max-height: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+.postContent img {
+  height: 100%;
+  width: 100%;
+}
+#hamburgerIcon {
+  display: none;
+}
+
+.user-profile-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+input[type="submit" i] {
+  font-family: "Space Grotesk Bold";
+  appearance: auto;
+  user-select: none;
+  text-wrap: nowrap;
+  align-items: flex-start;
+  text-align: center;
+  cursor: default;
+  box-sizing: border-box;
+  background-color: #592e8b;
+  color: white;
+  border-radius: 50px;
+  height: 40px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border: 2px solid #592e8b;
+}
+input[type="submit" i]:hover {
+  font-family: "Space Grotesk Bold";
+  appearance: auto;
+  user-select: none;
+  text-wrap: nowrap;
+  align-items: flex-start;
+  text-align: center;
+  cursor: default;
+  box-sizing: border-box;
+  background-color: white;
+  color: #592e8b;
+  border-radius: 50px;
+  height: 40px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: 0.5s;
+  border: 2px solid #592e8b;
+}
+
+.popup button {
+  font-family: "Space Grotesk Bold";
+  appearance: auto;
+  user-select: none;
+  text-wrap: nowrap;
+  align-items: flex-start;
+  text-align: center;
+  cursor: default;
+  box-sizing: border-box;
+  background-color: white;
+  color: #592e8b;
+  border-radius: 50px;
+  height: 40px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: 0.5s;
+  border: 2px solid #592e8b;
+}
+.popup button:hover {
+  font-family: "Space Grotesk Bold";
+  appearance: auto;
+  user-select: none;
+  text-wrap: nowrap;
+  align-items: flex-start;
+  text-align: center;
+  cursor: default;
+  box-sizing: border-box;
+  background-color: red;
+  color: white;
+  border-radius: 50px;
+  height: 40px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: 0.5s;
+  border: 2px solid #592e8b;
+}
+
+.postHeader {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 12px; /* Adjust the font size as needed */
+  color: #888; /* Adjust the color as needed */
+}
+
+.postDate {
+  display: flex;
+  font-size: 10px;
+  float: right;
+  margin-top: -10%;
+}
