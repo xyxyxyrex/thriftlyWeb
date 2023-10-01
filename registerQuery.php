@@ -11,7 +11,7 @@ if (isset($_POST["register"])) {
             $password = $_POST["password"];
 
             $timestamp = time();
-            $targetDir = "uploads/pfp"; // specify the target directory for uploads
+            $targetDir = "uploads/pfp";
             $targetFile = $targetDir . '/' . $timestamp . '_' . basename($_FILES["profile_picture"]["name"]);
             $uploadOk = 1;
             $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
@@ -27,19 +27,16 @@ if (isset($_POST["register"])) {
                 }
             }
 
-            // Check if file already exists
             if (file_exists($targetFile)) {
                 echo "Sorry, file already exists.";
                 $uploadOk = 0;
             }
 
-            // Check file size
             if ($_FILES["profile_picture"]["size"] > 500000) {
                 echo "Sorry, your file is too large.";
                 $uploadOk = 0;
             }
 
-            // Allow certain file formats
             if (
                 $imageFileType != "jpg" && $imageFileType != "png" && $imageFileType != "jpeg"
                 && $imageFileType != "gif"
@@ -48,10 +45,8 @@ if (isset($_POST["register"])) {
                 $uploadOk = 0;
             }
 
-            // Check if $uploadOk is set to 0 by an error
             if ($uploadOk == 0) {
                 echo "Sorry, your file was not uploaded.";
-                // if everything is ok, try to upload file
             } else {
                 if (move_uploaded_file($_FILES["profile_picture"]["tmp_name"], $targetFile)) {
                     echo "The file " . htmlspecialchars(basename($_FILES["profile_picture"]["name"])) . " has been uploaded.";
@@ -60,7 +55,6 @@ if (isset($_POST["register"])) {
                 }
             }
 
-            // Now, you can use $targetFile in your database query to store the file path.
 
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 

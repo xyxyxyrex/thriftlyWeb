@@ -73,9 +73,7 @@ if (isset($_POST["postContent"])) {
                     window.location.href = 'logout.php';
                 }
 
-                function selectLanguage() {
-                    // Add your language selection logic here
-                }
+                function selectLanguage() {}
             </script>
 
         </div>

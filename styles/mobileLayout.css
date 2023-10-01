@@ -12,7 +12,7 @@
 
   .navTwoCenter span,
   .navTwoRight span {
-    margin: 0 5px; /* Adjust the margin as needed */
+    margin: 0 5px;
   }
 
   .storyArea {
@@ -64,19 +64,18 @@
     box-shadow: none;
   }
 
-  /* Media query for smaller screens */
   .navTwoCenter span {
-    display: none; /* Hide the text content */
+    display: none;
   }
 
   .navTwoCenter span::before {
-    content: "\F4AC"; /* Unicode character for a message icon */
+    content: "\F4AC";
     font-family: "Font Awesome 6 Free";
     margin-right: 6px;
   }
 
   .navTwoCenter span:last-child::before {
-    content: "\F002"; /* Unicode character for a search icon */
+    content: "\F002";
     font-family: "Font Awesome 5 Free";
     margin-right: 5px;
   }

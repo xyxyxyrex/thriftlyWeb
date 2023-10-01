@@ -1,7 +1,7 @@
 var storyArea = document.getElementById('storyArea');
 
 function scrollStories(direction) {
-    var scrollAmount = 200; // Adjust the scroll amount as needed
+    var scrollAmount = 200;
 
     if (direction === 'left') {
         storyArea.scrollLeft -= scrollAmount;

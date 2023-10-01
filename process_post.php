@@ -7,7 +7,7 @@ if (isset($_POST["submitPost"])) {
     $postContent = $_POST["postContent"];
 
     $timestamp = time();
-    $randomChars = bin2hex(random_bytes(5)); // Generate random characters
+    $randomChars = bin2hex(random_bytes(5));
     $targetDir = "uploads/post/";
     $targetFile = $targetDir . $timestamp . '_' . $randomChars . '_' . basename($_FILES["file"]["name"]);
     $uploadOk = 1;
