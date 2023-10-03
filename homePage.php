@@ -79,8 +79,6 @@ if (isset($_POST["postContent"])) {
         </div>
     </div>
 
-
-
     <div class="storyArea" id="storyArea">
         <button id="leftButton" onclick="scrollStories('left')"><i class="fa-solid fa-chevron-left"></i></button>
         <button id="rightButton" onclick="scrollStories('right')"><i class="fa-solid fa-chevron-right"></i></button>
@@ -89,7 +87,7 @@ if (isset($_POST["postContent"])) {
             <img class="profilePicture" src="./assets/story2.png" alt="Profile Picture">
         </div>
         <div class="story" id="story2">
-            <img class="storyContent" src="https://picsum.photos/200/312" alt="Story Image">
+            <img cla ss="storyContent" src="https://picsum.photos/200/312" alt="Story Image">
             <img class="profilePicture" src="https://placekitten.com/800/409" alt="Profile Picture">
         </div>
         <div class="story" id="story2">
@@ -158,7 +156,6 @@ if (isset($_POST["postContent"])) {
 
         <div class="feedArea">
             <?php
-
             $postsQuery = $conn->query("SELECT tbl_posts.*, tbl_user.first_name, tbl_user.last_name FROM tbl_posts JOIN tbl_user ON tbl_posts.user_id = tbl_user.user_id ORDER BY post_date DESC");
             $posts = $postsQuery->fetchAll(PDO::FETCH_ASSOC);
 
@@ -166,7 +163,6 @@ if (isset($_POST["postContent"])) {
                 echo '<div class="post">';
                 echo '<div class="userImage"><img src="' . getProfilePicture($post['user_id']) . '" alt=""></div>';
                 echo '<div class="postContent">';
-
                 echo '<h3 style="margin: 0">' . $post['first_name'] . ' ' . $post['last_name'] . '</h3>';
                 echo '<h4 style="margin: 0">' . '@' . getUsername($post['user_id']) . '</h4>';
                 echo '<p class="postText">' . $post['post_content'] . '</p>';
@@ -175,6 +171,32 @@ if (isset($_POST["postContent"])) {
                 if (!empty($post['post_image'])) {
                     echo '<img class="postImage" src="' . $post['post_image'] . '" alt="">';
                 }
+                echo '<div class="postButtons">';
+                echo '<i class="fa-regular fa-heart"></i>';
+                echo '<i class="fa-regular fa-comment"></i>';
+                echo '</div>';
+                echo '<div class="commentSection">';
+
+                $commentsQuery = $conn->query("SELECT tbl_comments.*, tbl_user.profile_picture FROM tbl_comments JOIN tbl_user ON tbl_comments.user_id = tbl_user.user_id WHERE post_id = " . $post['post_id']);
+                $comments = $commentsQuery->fetchAll(PDO::FETCH_ASSOC);
+
+                foreach ($comments as $comment) {
+                    echo '<div class="comment">';
+                    echo '<div class="userImage"><img src="' . $comment['profile_picture'] . '" alt="">  </div>';
+                    echo '<h4 class="commentUserName"margin: 0">' . '@' . getUsername($comment['user_id']) . '</h4>';
+                    echo '<p>' . $comment['comment_content'] . '</p>';
+                    echo '</div>';
+                }
+
+                echo '<form action="process_post.php" method="post" class="commentForm">';
+                echo '<div class="commentInputContainer">';
+                echo '<input class="commentInput" name="commentContent" placeholder="Add a comment..." class="commentInput" type="text">';
+                echo '<input type="hidden" name="postId" value="' . $post['post_id'] . '">';
+                echo '<button class="commentButton" type="submit" name="submitComment"><i class="fa-regular fa-paper-plane"></i></button>';
+                echo '</div>';
+                echo '</form>';
+
+                echo '</div>';
                 echo '</div>';
                 echo '</div>';
             }
@@ -195,8 +217,8 @@ if (isset($_POST["postContent"])) {
                 return $username;
             }
             ?>
-
         </div>
+
         <div class="chatArea">
             <img src="./assets/logoName.png" alt="">
             <p>Chat 1</p>

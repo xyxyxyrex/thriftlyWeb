@@ -14,8 +14,31 @@ if (isset($_POST["submitPost"])) {
     $imageFileType = strtolower(pathinfo($targetFile, PATHINFO_EXTENSION));
     move_uploaded_file($_FILES["file"]["tmp_name"], $targetFile);
 
-    $sql = $conn->prepare("INSERT INTO tbl_posts (user_id, post_content, post_image) VALUES (?, ?, ?)");
-    $sql->execute([$userId, $postContent, $targetFile]);
+    $sqlPost = $conn->prepare("INSERT INTO tbl_posts (user_id, post_content, post_image) VALUES (?, ?, ?)");
+    $sqlPost->execute([$userId, $postContent, $targetFile]);
+
+    $postId = $conn->lastInsertId();
+
+    $reactionType = 'heart';
+    $sqlReaction = $conn->prepare("INSERT INTO tbl_reactions (post_id, user_id, reaction_type) VALUES (?, ?, ?)");
+    $sqlReaction->execute([$postId, $userId, $reactionType]);
+
+    if (isset($_POST["commentContent"])) {
+        $commentContent = $_POST["commentContent"];
+        $sqlComment = $conn->prepare("INSERT INTO tbl_comments (post_id, user_id, comment_content) VALUES (?, ?, ?)");
+        $sqlComment->execute([$postId, $userId, $commentContent]);
+    }
+
+    header('Location: homePage.php');
+    exit();
+} elseif (isset($_POST["submitComment"])) {
+
+    $userId = $_SESSION['user'];
+    $postId = $_POST["postId"];
+    $commentContent = $_POST["commentContent"];
+
+    $sqlComment = $conn->prepare("INSERT INTO tbl_comments (post_id, user_id, comment_content) VALUES (?, ?, ?)");
+    $sqlComment->execute([$postId, $userId, $commentContent]);
 
     header('Location: homePage.php');
     exit();

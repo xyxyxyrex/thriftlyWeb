@@ -147,7 +147,7 @@ button {
   display: flex;
 }
 
-input[type="text"] {
+.writePost input[type="text"] {
   width: 100%;
   border: none;
   padding: 10px;
@@ -404,4 +404,80 @@ input[type="submit" i]:hover {
   font-size: 10px;
   float: right;
   margin-top: -10%;
+}
+
+.postButtons {
+  display: flex;
+  font-size: 30px;
+}
+
+.fa-heart {
+  color: #592e8b;
+  padding-right: 5px;
+}
+
+.fa-comment {
+  color: #592e8b;
+  padding-right: 5px;
+}
+
+.fa-paper-plane {
+  color: #592e8b;
+}
+
+.commentInput {
+  width: 80%;
+  border-radius: 50px;
+  border: rgba(89, 46, 139, 0.5);
+  padding: 2.5%;
+  font-family: "Space Grotesk Regular";
+  transition: 0.8s;
+  background: rgba(89, 46, 139, 0.15);
+}
+.commentInput:focus {
+  width: 85%;
+  border: #592e8b;
+  border-radius: 0px;
+  padding: 2.5%;
+  font-family: "Space Grotesk Regular";
+  transition: 0.8s;
+  background: #592e8b;
+  color: white;
+  -webkit-appearance: none;
+}
+
+.comment {
+  display: flex;
+  align-items: center;
+  margin-top: 1px;
+  padding: 1%;
+  border-bottom: 1px solid #ccc;
+}
+
+.comment .userImage {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 10px;
+}
+
+.comment .userImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.commentButton {
+  -webkit-appearance: none;
+  font-size: 30px;
+  outline: none;
+  cursor: pointer;
+  padding: 0%;
+  margin: 1%;
+  border: none;
+}
+
+.commentUserName {
+  padding: 1%;
 }
