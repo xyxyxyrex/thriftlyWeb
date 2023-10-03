@@ -245,12 +245,16 @@ button {
   padding: 20px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   height: 50vh;
+  overflow-y: auto;
 }
 
-.chatArea img {
-  margin: auto;
-  height: 25px;
+.chatLogo {
   display: flex;
+  justify-content: center;
+}
+
+#chatLogo {
+  height: 30px;
 }
 
 .feedArea {
@@ -480,4 +484,39 @@ input[type="submit" i]:hover {
 
 .commentUserName {
   padding: 1%;
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5%;
+}
+
+.profile-picture {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  object-fit: fill;
+  margin-right: 10px;
+}
+
+.username {
+  margin: 0;
+  width: auto;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #884ccc;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #592e8b;
 }

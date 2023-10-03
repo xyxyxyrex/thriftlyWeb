@@ -8,7 +8,14 @@ if (!isset($_SESSION['user'])) {
 if (isset($_POST["postContent"])) {
     $postContent = $_POST["postContent"];
 }
+$usersQuery = $conn->query("SELECT * FROM tbl_user");
+$users = $usersQuery->fetchAll(PDO::FETCH_ASSOC);
 
+$usersCount = count($users);
+
+if (isset($_POST["postContent"])) {
+    $postContent = $_POST["postContent"];
+}
 ?>
 
 <!DOCTYPE html>
@@ -220,10 +227,24 @@ if (isset($_POST["postContent"])) {
         </div>
 
         <div class="chatArea">
-            <img src="./assets/logoName.png" alt="">
-            <p>Chat 1</p>
-            <p>Chat 2</p>
+            <div class="chatLogo">
+                <img id="chatLogo" src="assets/logoName.png" alt="">
+            </div>
+            <h2>Online: <?php echo '0/' . $usersCount; ?></h2>
+
+            <?php
+            $usersQuery = $conn->query("SELECT * FROM tbl_user");
+            $users = $usersQuery->fetchAll(PDO::FETCH_ASSOC);
+
+            foreach ($users as $user) {
+                echo '<div class="user">';
+                echo '<img class="profile-picture" src="' . $user['profile_picture'] . '" alt="Profile Picture">';
+                echo '<h4 class="username">' . $user['user_name'] . '</h4>';
+                echo '</div>';
+            }
+            ?>
         </div>
+
     </div>
 
 </body>
