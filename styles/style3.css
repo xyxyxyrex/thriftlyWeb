@@ -143,3 +143,53 @@ input[type="submit" i] {
   display: flex;
   width: 100%;
 }
+.user-profile-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.add-item-container {
+  width: 80%;
+  margin: auto;
+}
+#productListings {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 80%;
+  margin: auto;
+  margin-top: 5%;
+}
+
+#productListings td,
+#productListings th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#productListings tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#productListings tr:hover {
+  background-color: #ddd;
+}
+
+#productListings th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #592e8b;
+  color: white;
+}
+
+.productImage {
+  width: 250px;
+  height: 250px;
+}
+
+.existing-product {
+  width: 80%;
+  margin: auto;
+}

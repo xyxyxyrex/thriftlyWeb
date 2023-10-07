@@ -49,15 +49,15 @@ CREATE TABLE tbl_categories (
 CREATE TABLE tbl_products (
   product_id int(8) unsigned NOT NULL auto_increment,
   category_id int(8) unsigned NOT NULL,
-  seller_id int(8) unsigned NOT NULL,
+  user_id int(8) unsigned NOT NULL, -- Change here to user_id
   product_name varchar(255) NOT NULL,
-  product_description text NOT NULL,
   product_image varchar(255) default NULL,
   price decimal(10,2) NOT NULL,
   PRIMARY KEY (product_id),
   FOREIGN KEY (category_id) REFERENCES tbl_categories(category_id),
-  FOREIGN KEY (seller_id) REFERENCES tbl_user(user_id)
+  FOREIGN KEY (user_id) REFERENCES tbl_user(user_id) -- Change here to user_id
 );
+
 
 CREATE TABLE tbl_cart (
   cart_id int(8) unsigned NOT NULL auto_increment,
