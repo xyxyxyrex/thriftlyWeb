@@ -10,10 +10,11 @@ if (isset($_POST["register"])) {
             $username = $_POST["username"];
             $password = $_POST["password"];
 
+            $is_seller = isset($_POST["is_seller"]) && $_POST["is_seller"] == "1" ? 1 : 0;
+
             $timestamp = time();
             $targetDir = "uploads/pfp";
 
-            // Check if a file is uploaded
             if (!empty($_FILES["profile_picture"]["name"])) {
                 $targetFile = $targetDir . '/' . $timestamp . '_' . basename($_FILES["profile_picture"]["name"]);
                 $uploadOk = 1;
@@ -58,14 +59,15 @@ if (isset($_POST["register"])) {
                     }
                 }
             } else {
-                // If no file is uploaded, use the placeholder image
+
                 $targetFile = "uploads/pfp/placeholder.png";
             }
 
             $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-            $sql = "INSERT INTO tbl_user (first_name, last_name, user_name, password, profile_picture) 
-            VALUES ('$firstname', '$lastname', '$username', '$password', '$targetFile')";
+            $sql = "INSERT INTO tbl_user (first_name, last_name, user_name, password, profile_picture, is_seller) 
+            VALUES ('$firstname', '$lastname', '$username', '$password', '$targetFile', $is_seller)";
+
 
             $conn->exec($sql);
         } catch (PDOException $e) {

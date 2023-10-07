@@ -41,8 +41,8 @@ if (isset($_POST["postContent"])) {
     ?>
     <div class="navBar">
         <div class="navBar1">
-            <span>Home</span>
-            <span>Shop</span>
+            <a href="homePage.php?user_id=<?php echo $_SESSION['user']; ?>"><span>Home</span></a>
+            <a href="storePage.php?user_id=<?php echo $_SESSION['user']; ?>"><span>Shop</span></a>
         </div>
         <div class="navBar2">
             <div class="navBarLeft">

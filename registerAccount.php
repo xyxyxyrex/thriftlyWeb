@@ -44,6 +44,11 @@
 
                     <label for="profile-picture">Profile Picture</label>
                     <input id="profile-picture" type="file" name="profile_picture">
+                    </br>
+
+                    <label for="is-seller">Are you a seller?</label>
+                    <input type="radio" id="is-seller-yes" name="is_seller" value="1"> Yes
+                    <input type="radio" id="is-seller-no" name="is_seller" value="0" checked> No
 
                     <input type="submit" name="register">
 

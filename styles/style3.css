@@ -1,0 +1,145 @@
+@import url(./fonts.css);
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+
+body {
+  margin: 0;
+  font-family: "Space Grotesk Regular";
+  background: #e8e8e8;
+}
+
+.navBar1 {
+  justify-content: center;
+  text-align: center;
+  margin: 1%;
+  font-family: "Space Grotesk Bold";
+  font-size: 2rem;
+  text-decoration: none;
+  -webkit-appearance: none;
+}
+
+.navBar2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 5%;
+  font-family: "Space Grotesk Bold";
+  font-size: 2rem;
+}
+
+.navTwoLeft img {
+  width: 150px;
+  margin: 5%;
+}
+
+.navTwoRight {
+  display: flex;
+  align-items: center;
+}
+
+.navTwoRight span {
+  margin: 0 10px;
+  filter: opacity(0.5);
+}
+.navTwoRight span:hover {
+  margin: 0 10px;
+  color: #592e8b;
+  filter: opacity(1);
+  cursor: pointer;
+}
+
+.carousel {
+  width: 80vw;
+  margin-top: 5%;
+  margin: auto;
+}
+
+#hamburgerIcon {
+  display: none;
+}
+.popup button {
+  font-family: "Space Grotesk Bold";
+  appearance: auto;
+  user-select: none;
+  text-wrap: nowrap;
+  align-items: flex-start;
+  text-align: center;
+  cursor: default;
+  box-sizing: border-box;
+  background-color: white;
+  color: #592e8b;
+  border-radius: 50px;
+  height: 40px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: 0.5s;
+  border: 2px solid #592e8b;
+}
+.popup button:hover {
+  font-family: "Space Grotesk Bold";
+  appearance: auto;
+  user-select: none;
+  text-wrap: nowrap;
+  align-items: flex-start;
+  text-align: center;
+  cursor: default;
+  box-sizing: border-box;
+  background-color: red;
+  color: white;
+  border-radius: 50px;
+  height: 40px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  transition: 0.5s;
+  border: 2px solid #592e8b;
+}
+
+input[type="submit" i] {
+  font-family: "Space Grotesk Bold";
+  appearance: auto;
+  user-select: none;
+  text-wrap: nowrap;
+  align-items: flex-start;
+  text-align: center;
+  cursor: default;
+  box-sizing: border-box;
+  background-color: #592e8b;
+  color: white;
+  border-radius: 50px;
+  height: 40px;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border: 2px solid #592e8b;
+}
+
+.searchBar {
+  display: flex;
+  background: white;
+}
+
+.searchBar input[type="text"] {
+  width: 40vw;
+  border: none;
+  padding: 10px;
+  border-radius: 15px;
+  outline: none;
+  font-size: 1rem;
+  font-family: "Space Grotesk Regular";
+}
+
+.fa-search {
+  font-size: 1.5rem;
+  width: 10%;
+  justify-content: center;
+  text-align: center;
+  line-height: 200%;
+  background: #000;
+  color: #fff;
+}
+
+.navTwoCenter {
+  display: flex;
+  width: 100%;
+}
