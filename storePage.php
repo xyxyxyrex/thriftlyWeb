@@ -4,13 +4,11 @@ session_start();
 
 if (!isset($_SESSION['user'])) {
     header('location:index.php');
-    exit(); // Always exit after sending a header to prevent further script execution
+    exit();
 }
 
 if (isset($_GET['user_id'])) {
     $userId = $_GET['user_id'];
-
-    // Fetch user data using the user ID
     $userQuery = $conn->prepare("SELECT * FROM `tbl_user` WHERE `user_id` = :userId");
     $userQuery->bindParam(':userId', $userId);
     $userQuery->execute();
@@ -21,14 +19,27 @@ if (isset($_GET['user_id'])) {
         exit();
     }
 
-    // Now you can use the $user data as needed
     $userName = $user['user_name'];
     $isSeller = $user['is_seller'];
 } else {
-    // Redirect to a proper error page or handle the error accordingly
     header('location:index.php');
     exit();
 }
+
+$category = isset($_GET['category']) ? $_GET['category'] : '';
+
+if (!empty($category)) {
+    $productQuery = $conn->prepare("SELECT p.*, c.category_name FROM `tbl_products` p
+                                    INNER JOIN `tbl_categories` c ON p.category_id = c.category_id
+                                    WHERE c.category_name = :category");
+    $productQuery->bindParam(':category', $category);
+} else {
+    $productQuery = $conn->prepare("SELECT p.*, c.category_name FROM `tbl_products` p
+                                    INNER JOIN `tbl_categories` c ON p.category_id = c.category_id");
+}
+
+$productQuery->execute();
+$products = $productQuery->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
 <!DOCTYPE html>
@@ -131,26 +142,25 @@ if (isset($_GET['user_id'])) {
 
     <div class="categories">
         <div class="categoriesNavbar">
-            <a href="#">ALL</a>
-            <a href="#">WOMEN</a>
-            <a href="#">MEN</a>
-            <a href="#">KIDS</a>
-            <a href="#">JACKETS</a>
-            <a href="#">SHOES</a>
-            <a href="#">BEAUTY</a>
-            <a href="#">PETS</a>
-            <a href="#">TEENS</a>
-            <a href="#">ACCESSORIES</a>
-            <a href="#">BABY</a>
-            <a href="#">HATS</a>
-            <a href="#">JEANS</a>
-            <a href="#">DRESSES</a>
-            <a href="#">SPORTSWEAR</a>
-            <a href="#">SWEATERS</a>
-            <a href="#">SWIMWEAR</a>
-            <a href="#">UNDERWEAR</a>
-            <a href="#">ADD MORE</a>
-            <a href="#">ADD MORE</a>
+            <a href="storePage.php?user_id=<?php echo $_SESSION['user']; ?>">ALL</a>
+            <a href="storePage.php?user_id=<?php echo $_SESSION['user']; ?>&category=WOMEN">WOMEN</a>
+            <a href="storePage.php?user_id=<?php echo $_SESSION['user']; ?>&category=MEN">MEN</a>
+            <a href="storePage.php?user_id=<?php echo $_SESSION['user']; ?>&category=KIDS">KIDS</a>
+            <a href="storePage.php?user_id=<?php echo $_SESSION['user']; ?>&category=JACKETS">JACKETS</a>
+            <a href="storePage.php?user_id=<?php echo $_SESSION['user']; ?>&category=SHOES">SHOES</a>
+            <a href="storePage.php?user_id=<?php echo $_SESSION['user']; ?>&category=BEAUTY">BEAUTY</a>
+            <a href="storePage.php?user_id=<?php echo $_SESSION['user']; ?>&category=PETS">PETS</a>
+            <a href="storePage.php?user_id=<?php echo $_SESSION['user']; ?>&category=TEENS">TEENS</a>
+            <a href="storePage.php?user_id=<?php echo $_SESSION['user']; ?>&category=ACCESSORIES">ACCESSORIES</a>
+            <a href="storePage.php?user_id=<?php echo $_SESSION['user']; ?>&category=BABY">BABY</a>
+            <a href="storePage.php?user_id=<?php echo $_SESSION['user']; ?>&category=HATS">HATS</a>
+            <a href="storePage.php?user_id=<?php echo $_SESSION['user']; ?>&category=JEANS">JEANS</a>
+            <a href="storePage.php?user_id=<?php echo $_SESSION['user']; ?>&category=DRESSES">DRESSES</a>
+            <a href="storePage.php?user_id=<?php echo $_SESSION['user']; ?>&category=SPORTSWEAR">SPORTSWEAR</a>
+            <a href="storePage.php?user_id=<?php echo $_SESSION['user']; ?>&category=SWEATERS">SWEATERS</a>
+            <a href="storePage.php?user_id=<?php echo $_SESSION['user']; ?>&category=SWIMWEAR">SWIMWEAR</a>
+            <a href="storePage.php?user_id=<?php echo $_SESSION['user']; ?>&category=UNDERWEAR">UNDERWEAR</a>
+
         </div>
     </div>
     <div class="filter-container">
@@ -212,24 +222,36 @@ if (isset($_GET['user_id'])) {
     </script>
 
     <div class="product-container">
-        <div class="product-card">
-            <img class="product-image" src="assets/story1.png" alt="Product 1">
-            <div class="infoWrapper">
-                <div class="productInfo">
-                    <div class="product-name">Product Jacket</div>
-                    <div class="product-price">$19.99</div>
-                </div>
-                <div class="seller-info">
-                    <img class="seller-image" src="seller1.jpg" alt="Seller 1">
-                    <div class="seller-name">Seller's Store</div>
-                </div>
-                <div class="addToCart">
-                    <span>Add To Cart</span>
-                    <i class="fa-solid fa-circle-plus"></i>
+        <?php foreach ($products as $product) : ?>
+            <div class="product-card">
+                <img class="product-image" src="<?= htmlspecialchars($product['product_image']) ?>" alt="<?= htmlspecialchars($product['product_name']) ?>">
+                <div class="infoWrapper">
+                    <div class="productInfo">
+                        <div class="product-name"><?= htmlspecialchars($product['product_name']) ?></div>
+                        <div class="product-price">₱<?= htmlspecialchars($product['price']) ?></div>
+                    </div>
+                    <div class="user-info">
+                        <?php
+                        $userId = $product['user_id'];
+                        $userQuery = $conn->prepare("SELECT * FROM `tbl_user` WHERE `user_id` = :userId");
+                        $userQuery->bindParam(':userId', $userId);
+                        $userQuery->execute();
+                        $user = $userQuery->fetch();
+
+                        if ($user) {
+                            $userProfilePicture = $user['profile_picture'];
+                            echo '<span><img src="' . htmlspecialchars($userProfilePicture) . '" alt="User" class="user-image"></span>';
+                            echo '<div class="user-name">' . htmlspecialchars($user['user_name']) . '</div>';
+                        }
+                        ?>
+                    </div>
+                    <div class="addToCart">
+                        <span>Add To Cart</span>
+                        <i class="fa-solid fa-circle-plus"></i>
+                    </div>
                 </div>
             </div>
-
-        </div>
+        <?php endforeach; ?>
     </div>
 
 

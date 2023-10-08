@@ -21,8 +21,8 @@
         <div class="leftWrapper">
             <div class="gradBg"></div>
             <div class="textArea">
-                <h1>Relax.Brew.Enjoy</h1>
-                <h3>A sanctuary of taste and tranquility. Experience a delightful fusion of flavors and ambience at Mellow Brews, where exceptional beverages and delectable cuisine harmoniously converge.</h3>
+                <h1>Thriftly.</h1>
+                <h3>Embark on a journey of style and substance at Thriftly, the epitome of modern coolness. Dive into a curated selection that transcends fashion norms, where vintage vibes collide with contemporary edge. Thriftly is your portal to curated chicness, where every click unveils a style revolution. Break free from the ordinary, redefine your wardrobe, and embrace sustainable swagger. Elevate your fashion game at Thriftly.</h3>
             </div>
             <img src="assets/splashBg/splashBg1.jpg" class="background-image">
         </div>

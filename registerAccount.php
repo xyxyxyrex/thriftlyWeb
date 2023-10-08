@@ -16,8 +16,8 @@
     <div class="parentWrapper">
         <div class="leftWrapper">
             <div class="textArea">
-                <h1>Relax.Brew.Enjoy</h1>
-                <h3>A sanctuary of taste and tranquility. Experience a delightful fusion of flavors and ambience at Mellow Brews, where exceptional beverages and delectable cuisine harmoniously converge.</h3>
+                <h1>Join Now</h1>
+                <h3>Ready to dive into curated street fashion? Elevate your style game with personalized recommendations. Unleash your individuality — join the Thriftly revolution today! </h3>
             </div>
             <img src="./assets/splashBg/splashBg2.jpg" class="background-image">
         </div>

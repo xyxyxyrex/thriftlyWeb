@@ -294,22 +294,23 @@ input[type="submit" i] {
   margin-top: 5px;
   float: left;
   font-weight: bold;
+  font-family: "Arial";
 }
 
-.seller-info {
+.user-info {
   width: 100%;
   margin-top: 10px;
   display: flex;
 }
 
-.seller-image {
+.user-image {
   width: 30px;
   height: 30px;
   border-radius: 50%;
   float: right;
 }
 
-.seller-name {
+.user-name {
   margin-left: 5px;
   font-weight: bold;
   float: right;
