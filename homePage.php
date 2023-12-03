@@ -22,6 +22,17 @@ if (isset($_POST["postContent"])) {
 <html lang="en">
 
 <head>
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement({
+                pageLanguage: 'en',
+                layout: google.translate.TranslateElement.InlineLayout.SIMPLE
+            }, 'google_translate_element');
+        }
+    </script>
+    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <script type="text/javascript" src="//translate.google.com/#en/hi/Hello"></script>
+
     <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="styles/style1.css">
@@ -31,6 +42,8 @@ if (isset($_POST["postContent"])) {
     <title>Thrift.ly</title>
     <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
 </head>
+<style>
+</style>
 
 <body>
     <?php
@@ -64,7 +77,7 @@ if (isset($_POST["postContent"])) {
 
                 ?>
                 <span><i class="fa-solid fa-cart-shopping"></i></span>
-                <span><i class="fa-solid fa-globe" onclick="selectLanguage()"></i></span>
+                <span><i id="google_translate_element" class="fa-solid fa-globe" onclick="selectLanguage()"></i></span>
             </div>
             <div class="popup" id="logoutPopup">
                 <button onclick="logout()">Logout</button>

@@ -88,12 +88,19 @@ $products = $productQuery->fetchAll(PDO::FETCH_ASSOC);
                 echo '<span onclick="togglePopup()"><img src="' . $userProfilePicture . '" alt="Welcome, ' . ucfirst($fetch['first_name']) . '!" class="user-profile-img"></span>';
 
                 ?>
-                <span><i class="fa-solid fa-cart-shopping"></i></span>
+                <span onclick="redirectToCart()"><i class="fa-solid fa-cart-shopping"></i></span>
                 <span><i class="fa-solid fa-globe" onclick="selectLanguage()"></i></span>
             </div>
             <div class="popup" id="logoutPopup">
                 <button onclick="logout()">Logout</button>
             </div>
+
+            <script>
+                function redirectToCart() {
+                    window.location.href = 'cartPage.php?user_id=<?= $_SESSION['user'] ?>';
+                }
+            </script>
+
             <script>
                 function togglePopup() {
                     var popup = document.getElementById('logoutPopup');
@@ -245,7 +252,7 @@ $products = $productQuery->fetchAll(PDO::FETCH_ASSOC);
                         }
                         ?>
                     </div>
-                    <div class="addToCart">
+                    <div class="addToCart" onclick="addToCart(<?= htmlspecialchars($product['product_id']) ?>)">
                         <span>Add To Cart</span>
                         <i class="fa-solid fa-circle-plus"></i>
                     </div>
@@ -253,6 +260,18 @@ $products = $productQuery->fetchAll(PDO::FETCH_ASSOC);
             </div>
         <?php endforeach; ?>
     </div>
+    <script>
+        function addToCart(productId) {
+            var xhr = new XMLHttpRequest();
+            xhr.onreadystatechange = function() {
+                if (xhr.readyState === 4 && xhr.status === 200) {
+                    alert(xhr.responseText);
+                }
+            };
+            xhr.open("GET", "addToCart.php?product_id=" + productId, true);
+            xhr.send();
+        }
+    </script>
 
 
 
