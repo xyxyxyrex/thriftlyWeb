@@ -1,9 +1,3 @@
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-START TRANSACTION;
-SET time_zone = "+00:00";
-
-
 CREATE TABLE `tbl_cart` (
   `cart_id` int(8) UNSIGNED NOT NULL,
   `user_id` int(8) UNSIGNED NOT NULL,
@@ -65,48 +59,6 @@ CREATE TABLE `tbl_user` (
   `profile_picture` varchar(255) DEFAULT NULL,
   `is_seller` tinyint(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
-
-INSERT INTO `tbl_categories` (`category_id`, `category_name`) VALUES
-(1, 'ALL'),
-(2, 'WOMEN'),
-(3, 'MEN'),
-(4, 'KIDS'),
-(5, 'JACKETS'),
-(6, 'SHOES'),
-(7, 'BEAUTY'),
-(8, 'PETS'),
-(9, 'TEENS'),
-(10, 'ACCESSORIES'),
-(11, 'BABY'),
-(12, 'HATS'),
-(13, 'JEANS'),
-(14, 'DRESSES'),
-(15, 'SPORTSWEAR'),
-(16, 'SWEATERS'),
-(17, 'SWIMWEAR'),
-(18, 'UNDERWEAR');
-
-INSERT INTO `tbl_products` (`product_id`, `category_id`, `user_id`, `product_name`, `product_image`, `price`) VALUES
-(18, 12, 7, 'British Style Wool Fedoras Hat For Women Men Winter Autumn Warm Vintage Belt', 'uploads/ British Style Wool Fedoras Hat For Women Men Winter Autumn Warm Vintage Belt.jpg', 450.00),
-(19, 12, 7, 'Floral Printed Baseball Cap for Men and Women', 'uploads/ Floral Printed Baseball Cap for Men and Women .jpg', 350.00),
-(20, 12, 7, 'Baseball Summer Sun Caps Casual Style', 'uploads/Baseball Summer Sun Caps Casual Style.jpg', 250.00),
-(21, 12, 7, '  Elegant Women_s Organza Bucket Hat Purple with Flower Design', 'uploads/Elegant Women_s Organza Bucket Hat Purple with Flower Design.jpg', 499.00),
-(22, 12, 7, '  Fashion Hiking Camping UV Protection Cotton Linen Panama Cap Bucket Hat', 'uploads/Fashion Hiking Camping UV Protection Cotton Linen Panama Cap Bucket Hat ....jpeg', 450.00),
-(23, 12, 7, '  Iconoclast Bands merch Bucket hat', 'uploads/Iconoclast Bands merch Bucket hat.jpg', 350.00),
-(24, 12, 7, '  Japanese Print Bucket Hat Folding Sun Hat Summer Cap', 'uploads/Japanese Print Bucket Hat Folding Sun Hat Summer Cap.jpg', 850.00),
-(25, 12, 7, ' Military Tactical Boonie Bucket Hat Folding Wide Brim', 'uploads/Military Tactical Boonie Bucket Hat Folding Wide Brim.jpg', 499.00),
-(26, 12, 7, ' Nike Dri-FIT Club Structured Blank Front Cap', 'uploads/Nike Dri-FIT Club Structured Blank Front Cap.jpg', 650.00),
-(27, 12, 7, ' Solid Color Unisex Baseball Cap Snapback Caps Casquette Hats Fitted Casual Gorras ...', 'uploads/Solid Color Unisex Baseball Cap Snapback Caps Casquette Hats Fitted Casual Gorras ....jpg', 799.00);
-
-INSERT INTO `tbl_user` (`user_id`, `first_name`, `last_name`, `user_name`, `password`, `profile_picture`, `is_seller`) VALUES
-(6, 'not', 'seller', 'notseller', '123', 'uploads/pfp/placeholder.png', 1),
-(7, 'seller', 'seller', 'seller', '123', 'uploads/pfp/placeholder.png', 1),
-(8, 'asd', 'asd', 'asd', 'asd', 'uploads/pfp/placeholder.png', 1),
-(9, 'notseller', 'notseller', 'notseller1', '123', 'uploads/pfp/placeholder.png', 1),
-(10, 'notseller2', 'notseller2', 'notseller2', '123', 'uploads/pfp/placeholder.png', 0),
-(11, 'seller2', 'seller2', 'seller', '123', 'uploads/pfp/placeholder.png', 0),
-(12, 'seller3', 'seller3', 'seller3', '123', 'uploads/pfp/placeholder.png', 1);
 
 ALTER TABLE `tbl_cart`
   ADD PRIMARY KEY (`cart_id`),
