@@ -17,6 +17,18 @@ body {
   -webkit-appearance: none;
 }
 
+.navBar1 a{
+  text-decoration: none;
+  color: black;
+}
+
+
+.navBar1 a:hover{
+  text-decoration: none;
+  color: #592e8b;
+}
+
+
 .navBar2 {
   display: flex;
   justify-content: space-between;
@@ -56,6 +68,7 @@ body {
 #hamburgerIcon {
   display: none;
 }
+
 .popup button {
   font-family: "Space Grotesk Bold";
   appearance: auto;
@@ -74,6 +87,7 @@ body {
   cursor: pointer;
   transition: 0.5s;
   border: 2px solid #592e8b;
+  font-size: 24px;
 }
 .popup button:hover {
   font-family: "Space Grotesk Bold";
@@ -299,7 +313,7 @@ input[type="submit" i] {
 
 .user-info {
   width: 100%;
-  margin-top: 10px;
+ 
   display: flex;
 }
 
@@ -364,3 +378,84 @@ input[type="submit" i] {
 .addItem a {
   color: inherit;
 }
+
+/* LANGUAGE DROPDOWN */
+.goog-te-banner-frame {display:none;} 
+#goog-gt-tt {display:none!important;visibility:hidden!important;}
+
+
+.goog-te-gadget {
+  font-family: Roboto, 'Open Sans', sans-serif!important;
+  text-transform: uppercase;
+}
+.goog-te-gadget-simple  {
+  background-color: rgba(255,255,255,0.20)!important;
+  border: 1px solid #592e8b !important;
+  padding: 8px!important;
+  border-radius: 4px!important;
+  font-size: 1rem!important;
+  line-height:2rem!important;
+  display: inline-block;
+  cursor: pointer;
+  zoom: 1;
+  
+}
+.goog-te-menu2 {
+  max-width: 100%;
+}
+.goog-te-menu-value {
+
+    content: "\E927";
+    margin-right: 16px;
+    font-size: 2rem;
+    vertical-align: -10px;
+    width:32px!important;
+  } 
+
+.goog-te-menu-value span:nth-child(5) {
+  display:none;
+}
+.goog-te-menu-value span:nth-child(3) {
+  border:none!important;
+  font-family: 'Material Icons';
+  &:after {
+    font-family: 'Material Icons';
+    content: "\E5C5";
+    font-size: 1.5rem;
+    vertical-align: -6px;
+  }  
+}
+
+.goog-te-gadget-icon {
+    background-position: 0px 0px;
+    height: 32px!important;
+    width: 32px!important;
+    margin-right: 8px!important;
+    display: none;
+}
+
+.goog-te-banner-frame.skiptranslate {display: none!important;} 
+body {top: 0px!important;}
+
+/* ================================== *\
+    Mediaqueries
+\* ================================== */
+@media (max-width: 667px) {
+	#google_translate_element {
+		bottom: calc(100% - 50% - 53px);
+		left: 16px!important;
+		width: 100%!important;
+		goog-te-gadget {
+			width:100%!important;
+		}
+		.skiptranslate {
+			width:100%!important;			
+		}
+		.goog-te-gadget-simple {
+			width: calc(100% - 32px)!important;
+			text-align: center;
+		}	
+	}
+}
+
+

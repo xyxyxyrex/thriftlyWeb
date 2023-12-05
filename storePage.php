@@ -46,6 +46,67 @@ $products = $productQuery->fetchAll(PDO::FETCH_ASSOC);
 <html lang="en">
 
 <head>
+
+
+<script type="text/javascript">
+    // WORK IN PROGRESS BELOW
+      	
+$('document').ready(function () {
+
+
+// RESTYLE THE DROPDOWN MENU
+$('#google_translate_element').on("click", function () {
+
+// Change font family and color
+$("iframe").contents().find(".goog-te-menu2-item div, .goog-te-menu2-item:link div, .goog-te-menu2-item:visited div, .goog-te-menu2-item:active div, .goog-te-menu2 *")
+    .css({
+        'color': '#544F4B',
+        'font-family': 'Roboto',
+                        'width':'100%'
+    });
+// Change menu's padding
+$("iframe").contents().find('.goog-te-menu2-item-selected').css ('display', 'none');
+    
+        // Change menu's padding
+$("iframe").contents().find('.goog-te-menu2').css ('padding', '0px');
+
+// Change the padding of the languages
+$("iframe").contents().find('.goog-te-menu2-item div').css('padding', '20px');
+
+// Change the width of the languages
+$("iframe").contents().find('.goog-te-menu2-item').css('width', '100%');
+$("iframe").contents().find('td').css('width', '100%');
+
+// Change hover effects
+$("iframe").contents().find(".goog-te-menu2-item div").hover(function () {
+    $(this).css('background-color', '#4385F5').find('span.text').css('color', 'white');
+}, function () {
+    $(this).css('background-color', 'white').find('span.text').css('color', '#544F4B');
+});
+
+// Change Google's default blue border
+$("iframe").contents().find('.goog-te-menu2').css('border', 'none');
+
+// Change the iframe's box shadow
+$(".goog-te-menu-frame").css('box-shadow', '0 16px 24px 2px rgba(0, 0, 0, 0.14), 0 6px 30px 5px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.3)');
+
+
+
+// Change the iframe's size and position?
+$(".goog-te-menu-frame").css({
+    'height': '100%',
+    'width': '100%',
+    'top': '0px'
+});
+// Change iframes's size
+$("iframe").contents().find('.goog-te-menu2').css({
+    'height': '100%',
+    'width': '100%'
+});
+});
+});
+
+</SCRIPT>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
@@ -89,7 +150,7 @@ $products = $productQuery->fetchAll(PDO::FETCH_ASSOC);
 
                 ?>
                 <span onclick="redirectToCart()"><i class="fa-solid fa-cart-shopping"></i></span>
-                <span><i class="fa-solid fa-globe" onclick="selectLanguage()"></i></span>
+                <div class="translate" id="google_translate_element"></div>
             </div>
             <div class="popup" id="logoutPopup">
                 <button onclick="logout()">Logout</button>
@@ -192,6 +253,8 @@ $products = $productQuery->fetchAll(PDO::FETCH_ASSOC);
         }
         ?>
     </div>
+
+    
 
 
     <script>
